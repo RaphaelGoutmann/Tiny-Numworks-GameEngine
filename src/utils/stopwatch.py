@@ -1,22 +1,20 @@
 # stopwatch.py
 
-'''
-
-    (-.-) This code needs to be improved because (-.-)
-                 there's lot of bugs                    
-
-'''
-
 # u_u
 class Stopwatch:
     def __init__(self):
-        self.startTime = 0
+        self.startTime = inf
 
     def start(self):
         self.startTime = time.monotonic()
 
     def reset(self):
-        self.startTime = 0
+        self.startTime = inf
 
     def time(self):
-        return (time.time() - self.startTime)
+        difference = time.monotonic() - self.startTime
+
+        if difference < 0 :
+            return 0
+
+        return difference
